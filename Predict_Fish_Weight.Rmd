@@ -157,3 +157,9 @@ summary.lm(Roach2)
 The best two regressor models to predict Weight is Length3 + Width.
 
 ## Final Summary Statements
+
+The best regressor models in Perch to predict Weight is Height and Width. 
+
+The best regressor models in Pike to predict Weight is Length1 and Length3.    
+
+The best regressor models in Roach to predict Weight is Length3 and Width. 
