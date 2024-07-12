@@ -154,7 +154,7 @@ Roach2=lm(Weight~Length3+Width, data=Roach)
 summary.lm(Roach2)
 ```
 
-The best two regressor models to predict Weight is Length3 + Width.
+The best two regressor models to predict Weight is Length3 + Width.  
 
 ## Final Summary Statements
 
