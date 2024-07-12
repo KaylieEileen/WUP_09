@@ -90,7 +90,7 @@ perch2=lm(Weight~Height+Width, data=Perch)
 summary.lm(perch2)
 ```
 
-The best two regressor models predicting Weight is by using Height + Width. 
+The best two regressor models to predict Weight is Height + Width. 
 
 ## Pike
 
@@ -122,12 +122,38 @@ Pike2=lm(Weight~Length1+Length3, data=Pike)
 summary.lm(Pike2)
 ```
 
-The best two regressor models predicting Weight is by using Length1 + Length3.
+The best two regressor models to predict Weight is Length1 + Length3.
 
 ## Roach
 
 ### Best Models
+```{r}
+roachModel=lm(Weight~ .,data=Roach)
+summary.lm(roachModel) 
+```
+
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 ### Best Two regressor model
+```{r}
+Roach2=lm(Weight~Length3+Width, data=Roach)
+summary.lm(Roach2)
+```
+
+The best two regressor models to predict Weight is Length3 + Width.
 
 ## Final Summary Statements
